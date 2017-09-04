@@ -27,7 +27,7 @@ Update systemd and start the daemon
 ```
 sudo systemctl enable detdns
 sudo systemctl --system daemon-reload
-service detdns start
+sudo service detdns start
 ```
 
 Check the daemon is running correctly with ```service detdns status```
