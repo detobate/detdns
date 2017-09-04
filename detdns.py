@@ -27,7 +27,7 @@ def find_ipv4():
 
 
 def find_ipv6():
-    """ Creates a dummy socket to a public ip.
+    """ Creates a socket to a public ip.
         Let the OS's source address selection method do its magic
         return the source IP it selects"""
 
@@ -85,7 +85,7 @@ def main():
                 print("URL Called: %s" % (url))
                 print("Response: %s" % (r.status_code))
                 print("Response: %s" % (r.text))
-        if cfg['debug']:
+        elif cfg['debug']:
             print("%s: No Change" % (now))
 
         oldip = ip
