@@ -19,7 +19,9 @@ sudo pip3 install -r requirements.txt
 
 ## Systemd
 If you're running Ubuntu or another distribution that uses systemd and you'd like detdns to run on startup, copy the [detdns.service]() file to your systemd service definition folder. Usually /etc/systemd/system/
-```sudo cp detdns.service /etc/systemd/system/```
+```
+sudo cp detdns.service /etc/systemd/system/
+```
 Edit the service file and update __username__ to be a low privileged local user that you want to run the script as, and also the path to the script itself.
 Update systemd and start the daemon
 ```
