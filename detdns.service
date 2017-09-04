@@ -1,0 +1,12 @@
+[Unit]
+Description=detdns dynamic dns daemon
+After=network.target
+
+[Service]
+Type=simple
+User=__username__
+ExecStart=/path/to/detdns/detdns.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
