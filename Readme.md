@@ -15,7 +15,7 @@ sudo pip3 install -r requirements.txt
 ```
 
 * Create a detdns_config.py using the [example](https://github.com/detobate/detdns/raw/detdns_config.example.py) for syntax, filling in the username, password, and hostname that you'd like to update.
-* Run inside a screen session with ./detdns.py or launch from systemd/etc.
+* Run inside a screen session with ```./detdns.py``` or launch from systemd/etc.
 
 ## Systemd
 If you're running Ubuntu or another distribution that uses systemd and you'd like detdns to run on startup, copy the [detdns.service]() file to your systemd service definition folder. Usually /etc/systemd/system/
