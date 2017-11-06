@@ -8,6 +8,7 @@ from detdns_config import cfg
 v4_url = 'http://checkip.dyndns.com/'
 api = 'https://members.dyndns.org/nic/update'
 
+
 def find_ipv4():
     """ Use a remote url to return the public IPv4 source
         address used. Because NAT """
@@ -74,6 +75,7 @@ def main():
             if r.status_code == 200:
                 if "good" in r.text:
                     print("%s: Successfully updated host: %s" % (now, cfg['host']))
+                    oldip = ip
                     if ipv6:
                         print("%s: AAAA set to %s" % (now, ipv6))
                     if ipv4:
@@ -85,10 +87,10 @@ def main():
                 print("URL Called: %s" % (url))
                 print("Response: %s" % (r.status_code))
                 print("Response: %s" % (r.text))
+
         elif cfg['debug']:
             print("%s: No Change" % (now))
 
-        oldip = ip
         time.sleep(cfg['update_time'])
 
 
