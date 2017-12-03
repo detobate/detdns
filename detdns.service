@@ -7,6 +7,9 @@ Type=simple
 User=__username__
 ExecStart=/path/to/detdns/detdns.py
 Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=detdns
 
 [Install]
 WantedBy=multi-user.target
