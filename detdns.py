@@ -73,15 +73,16 @@ def main():
                 break
 
             if r.status_code == 200:
+                oldip = ip
                 if "good" in r.text:
                     print("%s: Successfully updated host: %s" % (now, cfg['host']))
-                    oldip = ip
                     if ipv6:
                         print("%s: AAAA set to %s" % (now, ipv6))
                     if ipv4:
                         print("%s: A set to %s" % (now, ipv4))
                 elif "nochg" in r.text:
                     print("%s: No Change" % (now))
+
 
             if cfg['debug']:
                 print("URL Called: %s" % (url))
