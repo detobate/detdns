@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-User=__username__
+User=nobody
 ExecStart=/path/to/detdns/detdns.py
 Restart=always
 StandardOutput=syslog
