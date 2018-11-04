@@ -24,7 +24,7 @@ def find_ipv4():
             print("Check that you have a valid IPv4 default route")
         ipv4 = None
 
-    return(ipv4)
+    return ipv4
 
 
 def find_ipv6():
@@ -43,7 +43,7 @@ def find_ipv6():
             print("Check that you have a valid IPv6 default route")
         ipv6 = None
 
-    return(ipv6)
+    return ipv6
 
 
 def main():
@@ -73,8 +73,8 @@ def main():
                 break
 
             if r.status_code == 200:
-                oldip = ip
                 if "good" in r.text:
+                    oldip = ip
                     print("%s: Successfully updated host: %s" % (now, cfg['host']))
                     if ipv6:
                         print("%s: AAAA set to %s" % (now, ipv6))
