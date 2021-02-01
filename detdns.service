@@ -7,8 +7,8 @@ Type=simple
 User=nobody
 ExecStart=/path/to/detdns/detdns.py
 Restart=always
-StandardOutput=syslog
-StandardError=syslog
+StandardOutput=journal
+StandardError=journal
 SyslogIdentifier=detdns
 
 [Install]
