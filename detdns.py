@@ -3,10 +3,10 @@ import requests
 import socket
 import time
 from lxml import html
-from detdns_config import cfg
+from detdns_config import cfg, providers
 
 v4_url = 'http://checkip.dyndns.com/'
-api = 'https://members.dyndns.org/nic/update'
+api = providers.get(cfg['provider'])
 
 
 def find_ipv4():
