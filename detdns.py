@@ -50,8 +50,15 @@ def main():
 
     oldip = None
     while True:
-        ipv6 = find_ipv6()
-        ipv4 = find_ipv4()
+        ip = None
+        if cfg['disable_v6']:
+            ipv6 = None
+        else:
+            ipv6 = find_ipv6()
+        if cfg['disable_v4']:
+            ipv4 = None
+        else:
+            ipv4 = find_ipv4()
 
         if ipv6 and ipv4:
             ip = ipv4 + "," + ipv6
@@ -81,16 +88,15 @@ def main():
                     if ipv4:
                         print("%s: A set to %s" % (now, ipv4))
                 elif "nochg" in r.text:
-                    print("%s: No Change" % (now))
-
+                    print("%s: No Change" % now)
 
             if cfg['debug']:
-                print("URL Called: %s" % (url))
-                print("Response: %s" % (r.status_code))
-                print("Response: %s" % (r.text))
+                print("URL Called: %s" % url)
+                print("Response: %s" % r.status_code)
+                print("Response: %s" % r.text)
 
         elif cfg['debug']:
-            print("%s: No Change" % (now))
+            print("%s: No Change" % now)
 
         time.sleep(cfg['update_time'])
 
