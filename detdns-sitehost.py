@@ -2,6 +2,7 @@
 import requests
 import socket
 import time
+from lxml import html
 from collections import OrderedDict
 from detdns_sh_config import cfg
 
@@ -74,8 +75,11 @@ def find_record_id(cfg, rr_type):
 
     url = f"https://api.sitehost.nz/1.1/dns/list_records.json?apikey={cfg.get('api_key')}&" \
           f"client_id={cfg.get('client_id')}&domain={cfg.get('domain')}"
-    responses = requests.get(url)
-    r = responses.json()
+    try:
+        responses = requests.get(url)
+        r = responses.json()
+    except requests.exceptions.ConnectionError as e:
+        print(f"{now}: {e}")
 
     record_id = None
 
